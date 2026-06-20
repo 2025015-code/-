@@ -4,7 +4,7 @@ import urllib.request
 import base64
 
 # 1. 여기에 네 실제 제미나이 API 키를 넣어줘! (양옆 따옴표 필수)
-GEMINI_API_KEY = "AQ.Ab8RN6Ie6a4vKH1FdL1Mt-UMhcyk7DuYGuFGHEnvxjL7cUZRWQ"
+GEMINI_API_KEY = "AQ.Ab8RN6KUWbBr3S5bzhklGXO8PvEzWKfPODk9oc6j2uTgvIvYjA"
 
 # 2. 웹 브라우저 창 및 레이아웃 설정
 st.set_page_config(
