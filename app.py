@@ -62,8 +62,8 @@ if uploaded_file is not None:
                     elif "png" in mime_type:
                         mime_type = "image/png"
 
-                    # 🔥 [핵심 수정] 403 차단이 걸리는 2.5 모델 대신, 무료 권한이 활짝 열려있는 gemini-1.5-flash 모델 엔드포인트로 변경
-                   url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}"
+                    # 들여쓰기 완벽 수정된 구글 2.5 플래시 주소
+                    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}"
                     
                     prompt = (
                         "너는 화학공학과 환경공학 전문가야. 제공된 의류 사진이나 성분표 이미지를 보고, "
