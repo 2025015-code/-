@@ -3,9 +3,8 @@ import json
 import urllib.request
 import base64
 
-# 🔥 [여기에 네 제미나이 API 키를 직접 적으세요!]
-# 예시: GEMINI_API_KEY = "AIza" (양옆에 따옴표 반드시 유지!)
-GEMINI_API_KEY = "AQ.Ab8RN6Kt6YuYC0EXZJADid4XM6VtBUc1nQLo8f885wI8LK_IAw"
+# 1. 여기에 네 실제 제미나이 API 키를 넣어줘! (양옆 따옴표 필수)
+GEMINI_API_KEY = "AQ.Ab8RN6Ie6a4vKH1FdL1Mt-UMhcyk7DuYGuFGHEnvxjL7cUZRWQ"
 
 # 2. 웹 브라우저 창 및 레이아웃 설정
 st.set_page_config(
@@ -63,7 +62,8 @@ if uploaded_file is not None:
                     elif "png" in mime_type:
                         mime_type = "image/png"
 
-                    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}"
+                    # 🔥 [핵심 수정] 403 차단이 걸리는 2.5 모델 대신, 무료 권한이 활짝 열려있는 gemini-1.5-flash 모델 엔드포인트로 변경
+                    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GEMINI_API_KEY}"
                     
                     prompt = (
                         "너는 화학공학과 환경공학 전문가야. 제공된 의류 사진이나 성분표 이미지를 보고, "
@@ -105,7 +105,7 @@ if uploaded_file is not None:
                             st.markdown(output_text)
                     except urllib.error.HTTPError as http_err:
                         err_msg = http_err.read().decode("utf-8")
-                        st.error(f"❌ 구글 AI 서버 통신 에러 발생! API 키가 잘못되었거나 만료되었습니다.\n상세 내용: {err_msg}")
+                        st.error(f"❌ 구글 AI 서버 통신 에러 발생!\n상세 내용: {err_msg}")
                     
             except Exception as e:
                 st.error(f"❌ 실행 중 오류가 발생했습니다: {e}")
